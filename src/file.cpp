@@ -184,6 +184,14 @@ static const char __rw_stdio_modes [][4] = {
     /* 29 */ "w+",    // trunc|out|in|app
     /* 30 */ "w+b",   // trunc|out|in|binary
     /* 31 */ "w+b"    // trunc|out|in|binary|app
+#ifdef _RWSTD_METADATA_EXTENSIONS
+    /* 32 */ "w+b+f",    // trunc|out|in|binary|app|fork
+    /* 33 */ "w+f",    // trunc|out|in|fork
+    /* 34 */ "r+f",    // out|in|fork
+    /* 35 */ "r+b+f",    // out|in|fork
+    /* 36 */ "f",    // fork
+    /* 37 */ ""      // trunc|in|binary|app|fork
+#endif   // _RWSTD_OS_ANT
 };
 
 
