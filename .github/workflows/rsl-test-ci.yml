@@ -1,0 +1,20 @@
+name: Ne.app RSL Test CI (Develop)
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build CI Packages
+      run: sudo apt update -y && sudo apt upgrade -y && sudo apt install build-essential cmake
+    - name: Build CI for RSL
+      run: make all
+  
