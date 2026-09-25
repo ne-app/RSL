@@ -32,6 +32,7 @@
 
 #include <rw/_allocator.h>
 #include <rw/_autoptr.h>
+#include <rw/_uniqueptr.h>
 #include <rw/_iterbase.h>
 #include <rw/_pair.h>
 #include <rw/_rawiter.h>
