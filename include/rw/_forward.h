@@ -68,7 +68,7 @@ template <class _TypeT>
 inline typename _RWSTD_REMOVE_REFERENCE(_TypeT)&&
 move (_TypeT&& __x)
 {
-    return (_TypeT&&) __x;
+    return static_cast<typename __rw::__rw_remove_reference<_TypeT>::type&&>(__x);
 }
 
 #    define _RWSTD_FORWARD(_TypeT, __x)   _STD::forward<_TypeT> (__x)
