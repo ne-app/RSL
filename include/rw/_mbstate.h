@@ -145,6 +145,8 @@ typedef struct {
     } __value;
 } __mbstate_t;
 
+typedef __mbstate_t mbstate_t;
+
 }   // extern "C"
 
 #    endif   // __mbstate_t_defined
