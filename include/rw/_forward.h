@@ -64,6 +64,12 @@ forward (typename identity<_TypeT>::type&& __x)
     return static_cast<_TypeT&&>(__x);
 }
 
+template <class _TypeT>
+inline typename _RWSTD_REMOVE_REFERENCE(_TypeT)&&
+move (auto __x)
+{
+    return (_RWSTD_REMOVE_REFERENCE(_TypeT))(__x);
+}
 
 template <class _TypeT>
 inline typename _RWSTD_REMOVE_REFERENCE(_TypeT)&&
