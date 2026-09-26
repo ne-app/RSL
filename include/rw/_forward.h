@@ -27,6 +27,7 @@
  * permissions and limitations under the License.
  *
  * Copyright 2008 Rogue Wave Software, Inc.
+ * Copyright 2026 Ne.app.
  * 
  **************************************************************************/
 
