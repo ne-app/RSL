@@ -33,6 +33,10 @@
 #ifndef _RWSTD_RW_UNIQUEPTR_H_INCLUDED
 #define _RWSTD_RW_UNIQUEPTR_H_INCLUDED
 
+#ifndef _RWSTD_NULLPTR_T
+#define _RWSTD_NULLPTR_T decltype(nullptr)
+#endif
+
 #ifndef _RWSTD_RW_DEFS_H_INCLUDED
 #  include <rw/_defs.h>
 #endif
@@ -42,34 +46,21 @@
 #ifndef _RWSTD_RW_META_ARR_H_INCLUDED
 #  include <rw/_meta_arr.h>
 #endif
+_RWSTD_NAMESPACE(__rw) {
 
+    template <class _TypeT>
+    struct __rw_unique_if;
 
-_RWSTD_NAMESPACE (__rw) {
+    template <class _TypeT>
+    struct __rw_unique_if<_TypeT[]>;
 
-
-template <class _TypeT>
-struct __rw_unique_if
-{
-    typedef _STD::unique_ptr<_TypeT> __single_object;
-};
-
-template <class _TypeT>
-struct __rw_unique_if<_TypeT[]>
-{
-    typedef _STD::unique_ptr<_TypeT[]> __unknown_bound;
-};
-
-template <class _TypeT, _RWSTD_SIZE_T _N>
-struct __rw_unique_if<_TypeT[_N]>
-{
-};
+    template <class _TypeT, _RWSTD_SIZE_T _N>
+    struct __rw_unique_if<_TypeT[_N]>;
 
 
 }   // namespace __rw
 
-
 _RWSTD_NAMESPACE (std) {
-
 
 // 20.7.1 - class template default_delete
 
@@ -495,5 +486,26 @@ make_unique (_RWSTD_SIZE_T __n)
 
 }   // namespace std
 
+_RWSTD_NAMESPACE(__rw) {
+
+    template <class _TypeT>
+    struct __rw_unique_if
+    {
+        typedef _STD::unique_ptr<_TypeT> __single_object;
+    };
+
+    template <class _TypeT>
+    struct __rw_unique_if<_TypeT[]>
+    {
+        typedef _STD::unique_ptr<_TypeT[]> __unknown_bound;
+    };
+
+    template <class _TypeT, _RWSTD_SIZE_T _N>
+    struct __rw_unique_if<_TypeT[_N]>
+    {
+    };
+
+
+}   // namespace __rw
 
 #endif   // _RWSTD_RW_UNIQUEPTR_H_INCLUDED

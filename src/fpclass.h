@@ -35,9 +35,9 @@
 #include <float.h>   // for _finite(), _fpclass(), _isnan(), _copysign()
 #include <math.h>    // for isfinite(), isnan(), isinf(), signbit()
 
-#ifndef _RWSTD_NO_IEEEFP_H
+#ifdef _RWSTD_FORCE_IEEEFP_H
 #  include <ieeefp.h>   // for fpclass(), isnan()
-#endif   // _RWSTD_NO_IEEEFP_H
+#endif   // _RWSTD_FORCE_IEEEFP_H
 
 
 #if defined (_MSC_VER)

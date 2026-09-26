@@ -137,19 +137,24 @@ _USING (::mbstate_t);
 
 extern "C" {
 
-typedef struct {
+typedef struct __n_mbstate {
     int __count;
     union {
         _RWSTD_WINT_T __wch;
         char          __wchb [4];
     } __value;
-} __mbstate_t;
+} __mbstate_type;
 
 }   // extern "C"
 
+#ifndef mbstate_t
+typedef __mbstate_type mbstate_t;
+#endif
+
 #    endif   // __mbstate_t_defined
 
-#    define _RWSTD_MBSTATE_T __mbstate_t
+#    define _RWSTD_MBSTATE_T mbstate_t
+
 
 #  elif defined (_RWSTD_OS_SUNOS)
 /*** Solaris 7 and beyond *************************************************/
@@ -268,6 +273,5 @@ struct mbstate_t
 
 #  endif   // generic OS
 #endif   // _RWSTD_NO_MBSTATE_T && !_RWSTD_MBSTATE_T_DEFINED
-
 
 #endif   // _RWSTD_RW_MBSTATE_H_INCLUDED
