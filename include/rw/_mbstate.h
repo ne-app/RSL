@@ -137,7 +137,7 @@ _USING (::mbstate_t);
 
 extern "C" {
 
-typedef struct __n_mbstate {
+typedef struct __mbstate {
     int __count;
     union {
         _RWSTD_WINT_T __wch;
