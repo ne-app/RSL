@@ -14,7 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build CI Packages
-      run: sudo apt update -y && sudo apt upgrade -y && sudo apt install build-essential cmake
+      run: sudo apt update -y && sudo apt install build-essential cmake
     - name: Build CI for RSL
       run: make all
-  
+    - name: Install CI for RSL
+      run: sudo make all
