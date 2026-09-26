@@ -769,7 +769,7 @@ _rw_brace_graph::build_list (const char* beg, const char* end)
     // we really expect that the first token is an open paren the
     // caller should have consumed the prefix before calling this
     if (*beg++ != '{')
-        return false;
+        return nullptr;
 
     // now fill in the middle, each child we create directly will
     // have a child pointer to the suffix node
@@ -779,12 +779,12 @@ _rw_brace_graph::build_list (const char* beg, const char* end)
     // find the end of the brace list
     const char* end_of_list = _rw_find_close_brace (beg, end);
     if (!end_of_list)
-        return false; // no list terminator
+        return nullptr; // no list terminator
 
     // build a node for the suffix.
     _rw_brace_node* suffix = build_anything (end_of_list + 1, end);
     if (!suffix)
-        return false; // failed to parse end
+        return nullptr; // failed to parse end
 
     // find the end of the first comma seperated token
     const char* mid = _rw_find_next_comma (beg, end_of_list);
@@ -798,7 +798,7 @@ _rw_brace_graph::build_list (const char* beg, const char* end)
         // next pointer will be the suffix we created above.
         _rw_brace_node* child = build_anything (beg, mid);
         if (!child)
-            return false;
+            return nullptr;
 
         if (!first_child)
             first_child = child;
@@ -829,7 +829,7 @@ _rw_brace_graph::build_list (const char* beg, const char* end)
     // build nodes from the last entry in the list
     _rw_brace_node* child = build_anything (beg, end_of_list);
     if (!child)
-        return false;
+        return nullptr;
 
     if (!first_child)
         first_child = child;

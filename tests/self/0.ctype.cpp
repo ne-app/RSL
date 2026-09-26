@@ -139,7 +139,7 @@ test_is (charT*, const char *cname,
     for (std::size_t i = 0; i != n_chars; ++i) {
         const charT ch = make_char (chars [i], (charT*)0);
 
-        int result = -1;
+        unsigned result = -1;
 
 #ifndef _RWSTD_NO_EXCEPTIONS
 
@@ -165,7 +165,7 @@ test_is (charT*, const char *cname,
             if (j)
                 ++expect_throws;
 
-            int threw = 0;
+            unsigned threw = 0;
 
             try {
                 result = ctp.is (m, ch);
@@ -233,7 +233,7 @@ test_is (charT*, const char *cname)
     //////////////////////////////////////////////////////////////////
     // exercise custom behavior
 
-    static const int chars[] = {
+    static const unsigned chars[] = {
         '0', '1', '2', '3', 'a', 'b', 'c',
         0x100, 0x7fff, 0x8000, 0xffff,
 #if 2 < _RWSTD_INT_SIZE
@@ -241,10 +241,10 @@ test_is (charT*, const char *cname)
 #else
         0x1ff, 0x700, 0x8fff, 0xf000,
 #endif
-        -1   // end of chars
+        0xFF   // end of chars
     };
 
-    static const int masks[] = {
+    static const unsigned masks[] = {
         /* '0'        */ std::ctype_base::alpha,
         /* '1'        */ std::ctype_base::cntrl,
         /* '2'        */ std::ctype_base::digit,
@@ -260,10 +260,10 @@ test_is (charT*, const char *cname)
         /* 0x7fffffff */ std::ctype_base::lower | std::ctype_base::print,
         /* 0x80000000 */ std::ctype_base::print | std::ctype_base::punct,
         /* 0xffffffff */ std::ctype_base::punct | std::ctype_base::space,
-        -1            // end of masks
+        0xFF            // end of masks
     };
 
-    static const int mask_all = 
+    static const unsigned mask_all = 
           std::ctype_base::alpha
         | std::ctype_base::cntrl
         | std::ctype_base::digit
@@ -415,17 +415,17 @@ test_narrow (charT*, const char *cname)
 
 /***********************************************************************/
 
-/* extern */ int opt_id;
+/* extern */ unsigned opt_id;
 
-/* extern */ int opt_is;
-/* extern */ int opt_scan_is;
-/* extern */ int opt_scan_not;
+/* extern */ unsigned opt_is;
+/* extern */ unsigned opt_scan_is;
+/* extern */ unsigned opt_scan_not;
 
-/* extern */ int opt_toupper;
-/* extern */ int opt_tolower;
+/* extern */ unsigned opt_toupper;
+/* extern */ unsigned opt_tolower;
 
-/* extern */ int opt_widen;
-/* extern */ int opt_narrow;
+/* extern */ unsigned opt_widen;
+/* extern */ unsigned opt_narrow;
 
 
 template <class charT>
