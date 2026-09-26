@@ -66,16 +66,9 @@ forward (typename identity<_TypeT>::type&& __x)
 
 template <class _TypeT>
 inline typename _RWSTD_REMOVE_REFERENCE(_TypeT)&&
-move (auto __x)
-{
-    return (_TypeT)(__x);
-}
-
-template <class _TypeT>
-inline typename _RWSTD_REMOVE_REFERENCE(_TypeT)&&
 move (_TypeT&& __x)
 {
-    return (_TypeT)(__x);
+    return (__rw::__rw_remove_reference<_TypeT&&>(__x));
 }
 
 #    define _RWSTD_FORWARD(_TypeT, __x)   _STD::forward<_TypeT> (__x)
