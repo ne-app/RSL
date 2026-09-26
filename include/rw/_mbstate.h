@@ -132,26 +132,24 @@ _USING (::mbstate_t);
 /*** Linux/glibc **********************************************************/
 
      // define __mbstate_t at file scope (see /usr/include/wchar.h)
-#    ifndef __mbstate_t_defined
-#      define __mbstate_t_defined 1
+#ifndef ____mbstate_t_defined
+#define ____mbstate_t_defined
 
 extern "C" {
 
-typedef struct __mbstate {
+typedef struct __mbstate_t {
     int __count;
     union {
         _RWSTD_WINT_T __wch;
         char          __wchb [4];
     } __value;
-} __mbstate_type;
+} __mbstate_t;
 
 }   // extern "C"
 
-#ifndef mbstate_t
-typedef __mbstate_type mbstate_t;
-#endif
-
 #    endif   // __mbstate_t_defined
+
+typedef __mbstate_t mbstate_t;
 
 #    define _RWSTD_MBSTATE_T mbstate_t
 
