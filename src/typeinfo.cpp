@@ -369,16 +369,10 @@ _RWSTD_NAMESPACE (std) {
 
 #  endif   // _RWSTD_NO_STD_BAD_TYPEID
 
-#  ifdef _RWSTD_NO_BAD_TYPEID_DEFAULT_CTOR
-
 bad_typeid::bad_typeid () _THROWS (())
 {
     // empty
 }
-
-#  endif   // _RWSTD_NO_BAD_TYPEID_DEFAULT_CTOR
-
-#  ifdef _RWSTD_NO_BAD_TYPEID_COPY_CTOR
 
 bad_typeid::bad_typeid (const bad_typeid &rhs) _THROWS (())
     : exception (rhs)
@@ -386,16 +380,10 @@ bad_typeid::bad_typeid (const bad_typeid &rhs) _THROWS (())
     // empty
 }
 
-#  endif   // _RWSTD_NO_BAD_TYPEID_COPY_CTOR
-
-#  ifdef _RWSTD_NO_BAD_TYPEID_DTOR
-
 bad_typeid::~bad_typeid () _THROWS (())
 {
     // empty
 }
-
-#  endif   // _RWSTD_NO_BAD_TYPEID_DTOR
 
 #  ifdef _RWSTD_NO_BAD_TYPEID_ASSIGNMENT
 
@@ -409,14 +397,10 @@ bad_typeid::operator= (const bad_typeid &rhs) _THROWS (())
 
 #  endif   // _RWSTD_NO_BAD_TYPEID_ASSIGNMENT
 
-#  ifdef _RWSTD_NO_BAD_TYPEID_WHAT
-
 const char* bad_typeid::what () const _THROWS (())
 {
     return "bad_typeid";
 }
-
-#  endif   // _RWSTD_NO_BAD_TYPEID_WHAT
 
 #  ifndef _RWSTD_NO_STD_BAD_TYPEID
 

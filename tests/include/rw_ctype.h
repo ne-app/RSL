@@ -62,16 +62,16 @@ struct _TEST_EXPORT UserCtypeBase: std::ctype_base
 
     // array of masks corresponding to each of the characters in chars
     // the first negative element in chars denotes the last element
-    const int* masks_;
-    const int* chars_;
+    const unsigned* masks_;
+    const unsigned* chars_;
 
     // arrays of correspondning uppercase and lowercase characters
-    const int* upper_;
-    const int* lower_;
+    const unsigned* upper_;
+    const unsigned* lower_;
 
     // arrays of corresponding narrow and wide characters
-    const int* narrow_;
-    const int* wide_;
+    const unsigned* narrow_;
+    const unsigned* wide_;
 
     // counter of the number of calls to all member functions
     // made throughout the lifetime of this object
@@ -124,7 +124,7 @@ public:
     UserCtype (_RWSTD_SIZE_T = 0);
 
     explicit
-    UserCtype (const int*, const int*, _RWSTD_SIZE_T = 0);
+    UserCtype (const unsigned* a, const unsigned* b, _RWSTD_SIZE_T c = 0);
 
 protected:
 
@@ -168,7 +168,7 @@ public:
     UserCtype (_RWSTD_SIZE_T = 0);
 
     explicit
-    UserCtype (const int*, const int*, _RWSTD_SIZE_T = 0);
+    UserCtype (const unsigned*, const unsigned*, _RWSTD_SIZE_T = 0);
 
 protected:
 
@@ -228,7 +228,7 @@ public:
     ctype (_RWSTD_SIZE_T = 0);
 
     explicit
-    ctype (const int*, const int*, _RWSTD_SIZE_T = 0);
+    ctype (const unsigned*, const unsigned*, _RWSTD_SIZE_T = 0);
 
     bool
     is (mask m, char_type c) const {
@@ -348,7 +348,7 @@ public:
     UserCtype (_RWSTD_SIZE_T = 0);
 
     explicit
-    UserCtype (const int*, const int*, _RWSTD_SIZE_T = 0);
+    UserCtype (const unsigned*, const unsigned*, _RWSTD_SIZE_T = 0);
 };
 
 

@@ -27,6 +27,7 @@
  * permissions and limitations under the License.
  *
  * Copyright 2008 Rogue Wave Software, Inc.
+ * Copyright 2026 Ne.app.
  * 
  **************************************************************************/
 
@@ -61,15 +62,14 @@ template <class _TypeT>
 inline _TypeT&&
 forward (typename identity<_TypeT>::type&& __x)
 {
-    return __x;
+    return static_cast<_TypeT&&>(__x);
 }
-
 
 template <class _TypeT>
 inline typename _RWSTD_REMOVE_REFERENCE(_TypeT)&&
 move (_TypeT&& __x)
 {
-    return __x;
+    return static_cast<typename __rw::__rw_remove_reference<_TypeT>::type&&>(__x);
 }
 
 #    define _RWSTD_FORWARD(_TypeT, __x)   _STD::forward<_TypeT> (__x)

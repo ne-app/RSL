@@ -52,9 +52,6 @@ _RWSTD_NAMESPACE (std) {
 
 #endif   // _RWSTD_NAMESPACE_STD_OPEN
 
-#include _RWSTD_ANSI_C_STDINT_H
-
-
 #if _RWSTD_NAMESPACE_STD_OPEN == 19
 #  undef _RWSTD_NAMESPACE_STD_OPEN
 
@@ -67,12 +64,11 @@ _RWSTD_NAMESPACE (std) {
 #ifndef _RWSTD_CSTDINT_INCLUDED
 #define _RWSTD_CSTDINT_INCLUDED
 
-#include _RWSTD_ANSI_C_STDINT_H
-
 #if !defined (_RWSTD_NO_NAMESPACE) && !defined (_RWSTD_NO_HONOR_STD) && \
     !defined (_RWSTD_NO_USING_LIBC_IN_STD)
+/*
 
-namespace std {
+namespace _STD {
 
 #ifdef _RWSTD_INT8_T
     using ::int8_t;
@@ -163,6 +159,8 @@ namespace std {
 #endif   // _RWSTD_UINT_LEAST128_T
 
 }   // std
+AMLALE: Commented out for now.
+*/
 
 #endif   // !_RWSTD_NO_NAMESPACE && !_RWSTD_NO_HONOR_STD && !_RWSTD_NO_USING_LIBC_IN_STD
 

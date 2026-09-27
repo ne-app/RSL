@@ -2668,8 +2668,8 @@ make_tm (int sec = 0,            // [0,60]
 
 #  ifndef __USE_BSD
 
-    tmp.__tm_gmtoff = gmtoff;
-    tmp.__tm_zone   = zone;
+    tmp.tm_gmtoff = gmtoff;
+    tmp.tm_zone   = zone;
 
 #  else   // if defined (__USE_BSD)
 
