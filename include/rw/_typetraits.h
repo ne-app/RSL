@@ -27,6 +27,7 @@
  * permissions and limitations under the License.
  *
  * Copyright 1994-2006 Rogue Wave Software.
+ * Copyright 2026 Ne.app.
  * 
  **************************************************************************/
 
@@ -39,6 +40,19 @@
 
 _RWSTD_NAMESPACE (__rw) { 
 
+template <class T, T v>
+struct __rw_integral_constant
+{
+    static constexpr T value = v;
+    using value_type = T;
+    using type = integral_constant;
+
+    constexpr operator value_type() const noexcept { return value; }
+    constexpr value_type operator()() const noexcept { return value; }
+};
+
+using __rw_true_type = __rw_integral_constant<bool, true>;
+using __rw_false_type = __rw_integral_constant<bool, false>;
 
 template <class _TypeT>
 struct __rw_is_const
@@ -53,7 +67,6 @@ struct __rw_is_const<const _TypeT>
     typedef _TypeT _C_type;
     enum { _C_val = 1 };
 };
-
 
 template <class _TypeT>
 struct __rw_is_volatile
@@ -128,6 +141,12 @@ struct __rw_is_reference<_TypeT&>
     enum { _C_val = 1 };
 };
 
+template <class _TypeT>
+struct __rw_is_reference<_TypeT&&>
+{
+    typedef _TypeT _C_type;
+    enum { _C_val = 1 };
+};
 
 template <class _TypeT>
 struct __rw_is_fundamental
