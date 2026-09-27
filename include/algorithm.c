@@ -23,7 +23,11 @@
  * permissions and limitations under the License.
  *
  * Copyright 1994-2006 Rogue Wave Software.
+ * Copyright 2026 Ne.app.
  * 
  **************************************************************************/
 
+ /// AMLALE: Why are we doing this?
+#ifndef _RW_CXX11_CL
 #include <algorithm.cc>
+#endif

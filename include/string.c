@@ -25,5 +25,6 @@
  * Copyright 1994-2006 Rogue Wave Software.
  * 
  **************************************************************************/
-
+#ifndef _RW_CXX11_CL
 #include <string.cc>
+#endif

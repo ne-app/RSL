@@ -97,7 +97,7 @@ UserCtypeBase::Exception::
 
 /**************************************************************************/
 
-static const int
+static const unsigned
 _rw_char_masks [256] = {
 
 #define ALPHA     std::ctype_base::alpha
@@ -580,7 +580,7 @@ _rw_check_char (const UserCtypeBase   &ctp,
 /**************************************************************************/
 
 static UserCtype<char>::mask*
-_rw_make_mask_vec (const int *chars, const int *masks)
+_rw_make_mask_vec (const unsigned *chars, const unsigned *masks)
 {
     if (0 == chars) {
         RW_ASSERT (0 == masks);
@@ -614,7 +614,7 @@ UserCtype (size_t refs /* = 0 */)
 
 
 UserCtype<char>::
-UserCtype (const int *chars, const int *masks, size_t refs /* = 0 */)
+UserCtype (const unsigned *chars, const unsigned *masks, size_t refs /* = 0 */)
     : Base (_rw_make_mask_vec (chars, masks), true, refs),
       UserCtypeBase ("char")
 {
@@ -896,7 +896,7 @@ UserCtype (size_t refs /* = 0 */)
 
 
 UserCtype<wchar_t>::
-UserCtype (const int *chars, const int *masks, size_t refs)
+UserCtype (const unsigned *chars, const unsigned *masks, size_t refs)
     : Base (refs), UserCtypeBase ("wchar_t")
 {
     if (0 == masks) {
@@ -1307,7 +1307,7 @@ ctype (size_t refs /* = 0 */)
 
 
 ctype<UserChar>::
-ctype (const int *chars, const int *masks, size_t refs /* = 0 */)
+ctype (const unsigned *chars, const unsigned *masks, size_t refs /* = 0 */)
     : Base (refs), UserCtypeBase ("UserChar")
 {
     if (0 == masks) {
@@ -1712,7 +1712,7 @@ UserCtype (size_t refs /* = 0 */)
 
 
 UserCtype<UserChar>::
-UserCtype (const int *chars, const int *masks, size_t refs)
+UserCtype (const unsigned *chars, const unsigned *masks, size_t refs)
     : Base (refs)
 {
     if (0 == masks) {

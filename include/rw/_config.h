@@ -26,6 +26,7 @@
  * permissions and limitations under the License.
  *
  * Copyright 1994-2008 Rogue Wave Software, Inc.
+ * Copyright 2026 Ne.app.
  * 
  **************************************************************************/
 
@@ -37,7 +38,7 @@
 
 /*** library version numbers and ids **************************************/
 
-#define _RWSTD_VER 0x05000000
+#define _RWSTD_VER 0x06000000
 //                    | | | |
 //                   MMmmuupp
 //                    | | | |
@@ -47,7 +48,7 @@
 //                    +--------- MM = major version number
 
 // library version string (patch number included only if non-zero)
-#define _RWSTD_VER_STR   "5.0.0"
+#define _RWSTD_VER_STR   "6.0.0"
 
 // library version numbers
 #define _RWSTD_VER_MAJOR ((_RWSTD_VER >> 24) & 0xff)
